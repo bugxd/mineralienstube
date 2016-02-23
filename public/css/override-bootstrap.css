@@ -1,0 +1,48 @@
+@CHARSET "ISO-8859-1";
+
+.jumbotron{
+	background-color: #99ccff !important;
+}
+
+.well{
+	background: white !important;
+}
+
+/*nav menu active item*/
+.active-color .active a,
+.active-color .active a:hover, 
+.active-color .active a:focus{
+    background-color: #99ccff !important;
+}
+
+/*nav menu colur*/
+a {
+    color: #99ccff;
+}
+
+/*nav menu active item badage*/
+.list-group-item.active > .badge,
+.nav-pills > .active > a > .badge {
+    color: #99ccff;
+    background-color: #fff;
+}
+
+.jumbotron{
+	
+}
+
+body{
+	font-family:'Mv Boli' !important;
+}
+
+h2{
+	font-weight:bold;
+}
+
+p{
+	font-size:20px;
+}
+
+.media-body{
+	font-size:17px;
+}
