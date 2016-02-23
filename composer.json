@@ -19,15 +19,15 @@
 	},
 	"scripts": {
 		"post-install-cmd": [
-			"/etc/php5/cgi/var/www/vhosts/system/mineralienstube.at/etc/php artisan clear-compiled",
-			"/etc/php5/cgi/var/www/vhosts/system/mineralienstube.at/etc/php artisan optimize"
+			"php artisan clear-compiled",
+			"php artisan optimize"
 		],
 		"post-update-cmd": [
-			"/etc/php5/cgi/var/www/vhosts/system/mineralienstube.at/etc/php artisan clear-compiled",
-			"/etc/php5/cgi/var/www/vhosts/system/mineralienstube.at/etc/php artisan optimize"
+			"php artisan clear-compiled",
+			"php artisan optimize"
 		],
 		"post-create-project-cmd": [
-			"/etc/php5/cgi/var/www/vhosts/system/mineralienstube.at/etc/php artisan key:generate"
+			"php artisan key:generate"
 		]
 	},
 	"config": {
