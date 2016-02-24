@@ -31,7 +31,7 @@ img {
 	<img class="img-responsive" src="/images/findYstone/aura.jpg" max-width="345" max-hight="345" alt = "Maennchen" usemap="#Maennchen">
 	
 		<map name="Maennchen">					
-			<area id="Kronenchakra" shape="circle" coords="175,103, 12" href="http://www.earthangel-family.de/kronenchakra/"
+			<area id="Kronenchakra" shape="circle" coords="175,103, 12" href="{{ URL::route('stones-search-param', 'Kronenchakra') }}"
 			alt="Kronenchakra" title="Kronenchakra">
 			<area id="Stirnchakra" shape="circle" coords="214,130,12" href="http://www.earthangel-family.de/stirnchakra/"
 			alt="Stirnchakra" title="Stirnchakra">

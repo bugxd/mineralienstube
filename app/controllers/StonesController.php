@@ -486,4 +486,12 @@ class StonesController extends Controller {
 
 			
 	}
+
+	protected function searchStoneParam($param)
+	{
+		$stones = Stone::where('name', 'LIKE', $param.'%')
+                ->get();
+
+		return View::make('stones.results')->with('stones', $stones);
+	}
 }

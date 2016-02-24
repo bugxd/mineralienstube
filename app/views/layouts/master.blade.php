@@ -20,6 +20,59 @@
     </head>
     <body>
 	    <div class="container">
+
+	    	<nav class="navbar navbar-default navbar-fixed-top">
+			  <div class="container-fluid">
+			    <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="#">Fell und Mineralienstube</a>
+			    </div>
+
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      <ul class="nav navbar-nav">
+			        <li class="{{ Request::is('home') ? 'active' : '' }}">
+				        <a href="{{ URL::route('home') }}">Home</a>
+				    </li>
+				    <li class="{{ Request::is('angebote') ? 'active' : '' }}">
+				        <a href="{{ URL::route('angebote') }}">Angebote</a>
+				    </li>
+				    <li class="{{ Request::is('findYstone') ? 'active' : '' }}">
+				        <a href="{{ URL::route('findYstone') }}">Finde deinen Stein</a>
+				    </li>
+
+				    @if(Auth::check() && Auth::user()->isAdmin())
+				    <li class="{{ Request::is('stones-home') ? 'active' : '' }}">
+				        <a href="{{ URL::route('stones-home') }}">Stones</a>
+				    </li>
+				    @endif
+			      </ul>
+			      <form class="navbar-form navbar-left" id="search_form" method="post" action="{{ URL::route('stones-search') }}" role="search">
+			        <div class="form-group">
+			          <input id="search_text" name="search_text" type="text" class="form-control" placeholder="Stein">
+			        </div>
+			        <button id="search_submit" type="submit" class="btn btn-info">Suchen</button>
+			        {{Form::token()}}
+			      </form>
+			      <ul class="nav navbar-nav navbar-right">
+			        @if(!Auth::check())
+						<li><a href="{{ URL::route('getCreate') }}">Register</a></li>
+						<li><a href="{{ URL::route('getLogin') }}">Login</a></li>
+					@else
+						<li><a href="{{ URL::route('getLogout') }}">Logout</a></li>
+					@endif
+			      </ul>
+			    </div><!-- /.navbar-collapse -->
+			  </div><!-- /.container-fluid -->
+			</nav>
+
+
 	    	<div class="row">
 	    		<div class="col-md-12">
 	    			<div class="jumbotron">
@@ -29,57 +82,6 @@
 	    		</div>
 	    	</div>
 	        
-	    	<div class="row">
-	    		<div class="col-md-12">
-					<div class="navbar">
-						<div class="container">
-							<div class="navbar-header">
-								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-									<span class="icon-bar"></span> 
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								</button>
-							</div>
-							<div class="navbar-collapse collapse navbar-responsive-collapse">
-								<ul class="nav navbar-nav">
-									<li class="{{ Request::is('home') ? 'active' : '' }}">
-								        <a href="{{ URL::route('home') }}">Home</a>
-								    </li>
-								    <li class="{{ Request::is('angebote') ? 'active' : '' }}">
-								        <a href="{{ URL::route('angebote') }}">Angebote</a>
-								    </li>
-								    <li class="{{ Request::is('findYstone') ? 'active' : '' }}">
-								        <a href="{{ URL::route('findYstone') }}">Finde deinen Stein</a>
-								    </li>
-
-								    @if(Auth::check() && Auth::user()->isAdmin())
-								    <li class="{{ Request::is('stones-home') ? 'active' : '' }}">
-								        <a href="{{ URL::route('stones-home') }}">Stones</a>
-								    </li>
-								    @endif
-								</ul>
-								<form class="navbar-form navbar-left" id="search_form" method="post" action="{{ URL::route('stones-search') }}">
-							        <div class="form-group">
-							          <input id="search_text" name="search_text" type="text" class="form-control" placeholder="Search">
-							        </div>
-							        <button id="search_submit" type="submit" class="btn btn-info">Search</button>
-							        {{Form::token()}}
-						      	</form>
-								<ul class="nav navbar-nav navbar-right">
-									@if(!Auth::check())
-										<li><a href="{{ URL::route('getCreate') }}">Register</a></li>
-										<li><a href="{{ URL::route('getLogin') }}">Login</a></li>
-									@else
-										<li><a href="{{ URL::route('getLogout') }}">Logout</a></li>
-									@endif
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-	    	</div>
-
-
 	    	<div class="row">
 	    		<div class="col-md-12">
 					@if(Session::has('success'))
