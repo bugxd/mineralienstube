@@ -93,7 +93,7 @@ class StonesController extends Controller {
 						foreach(Input::get('disease_select') as $id){
 							$stdi = new StoneDisease;
 							$stdi->stone_id = $stone->id;
-							$stdi->diseases_id = $id;
+							$stdi->disease_id = $id;
 							$stdi->save();
 						};
 					}
