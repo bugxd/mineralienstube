@@ -308,22 +308,22 @@ class StonesController extends Controller {
 
 		if($disease->count() > 0)
 		{
-			$delD = $disease->delete;
+			$delD = $disease->delete();
 		}
 
 		if($chakra->count() > 0)
 		{
-			$delC = $chakra->delete;
+			$delC = $chakra->delete();
 		}
 
 		if($found->count() > 0)
 		{
-			$delF = $found->delete;
+			$delF = $found->delete();
 		}
 
 		if($body->count() > 0)
 		{
-			$delB = $body->delete;
+			$delB = $body->delete();
 		}
 
 		if($delD && $delC && $delF && $delB && $stone->delete())
@@ -363,7 +363,7 @@ class StonesController extends Controller {
 
 		if($stdi->count() > 0)
 		{
-			$del = $stdi->delete;
+			$del = $stdi->delete();
 		}
 
 		if($del && $disease->delete())
@@ -441,7 +441,7 @@ class StonesController extends Controller {
 		
 		if($stfo->count() > 0)
 		{
-			$del = $stfo->delete;
+			$del = $stfo->delete();
 		}
 
 		if($del && $found->delete())
