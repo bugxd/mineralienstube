@@ -402,7 +402,7 @@ class StonesController extends Controller {
 		
 		if($stbo->count() > 0)
 		{
-			$del = $stbo->delete;
+			$del = $stbo->delete();
 		}
 
 		if($del && $body->delete())
