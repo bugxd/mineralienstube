@@ -41,6 +41,7 @@ class StonesController extends Controller {
 	 */
 	protected function storeStone()
 	{
+		//validate stone data
 		$validate = Validator::make(Input::all(), array(
 				'stone_name' => 'required|unique:stones,name',
 				'stone_desc' => 'required',
@@ -49,17 +50,18 @@ class StonesController extends Controller {
 
 		if($validate->fails())
 		{
+			//redirect back with errors and which modal dialog to open
 			return Redirect::route('stones-home')->withErrors($validate)->with('modal', '#stone_form');
 		}
 		else
 		{
-
 			if(Input::hasFile('stone_img'))
 			{
 				//store img
 				$file = Input::file('stone_img');
 				$file->move('images/stones', $file->getClientOriginalName());
-			
+				
+				//store stone
 				$stone = new Stone;
 				$stone->name = Input::get('stone_name');
 				$stone->description = Input::get('stone_desc');
@@ -70,6 +72,7 @@ class StonesController extends Controller {
 				if($stone->save())
 				{	
 
+					//insert relations 
 					if(is_array(Input::get('chakra_select'))){
 						foreach(Input::get('chakra_select') as $id){
 							$stch = new StoneChakra;
@@ -489,9 +492,16 @@ class StonesController extends Controller {
 
 	protected function searchStoneParam($param)
 	{
-		$stones = Stone::where('name', 'LIKE', $param.'%')
-                ->get();
+		$bodys = Body::where('name', 'LIKE', $param.'%')->first();
+		$chakras = Chakra::where('name', 'LIKE', $param.'%')->first();
 
-		return View::make('stones.results')->with('stones', $stones);
+		if($chakras != null)
+		{
+			return View::make('stones.results')->with('stones', $chakras->stones);
+		}
+		if($bodys != null)
+		{
+			return View::make('stones.results')->with('stones', $bodys->stones);
+		}
 	}
 }

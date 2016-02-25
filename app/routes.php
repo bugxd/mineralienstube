@@ -82,7 +82,7 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('/user/logout', array('uses' => 'UserController@getLogout', 'as' => 'getLogout'));
 	Route::post('/search', array('uses' => 'StonesController@searchStone', 'as' => 'stones-search'));
 	Route::get('/reuslts', array('uses' => 'PagesController@getResults', 'as' => 'stones-results'));
-	Route::get('/test/{param}', array('uses' =>'StonesController@searchStoneParam', 'as' => 'stones-search-param'));
+	Route::get('/reuslts/{param}', array('uses' =>'StonesController@searchStoneParam', 'as' => 'stones-search-param'));
 });
 
 

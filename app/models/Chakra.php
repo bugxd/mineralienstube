@@ -8,4 +8,16 @@ class Chakra extends Eloquent{
 	 * @var string
 	 */
 	protected $table = 'chakras';
+
+	/**
+	 * function bodies
+	 *
+	 * calculate all stone entrys with the spezified pivot table
+	 *
+	 * @return entrys from the stone table that belong to a charkra
+	*/
+	public function stones()
+	{
+		return $this->belongsToMany('Stone', 'stones_chakras');
+	}
 }
