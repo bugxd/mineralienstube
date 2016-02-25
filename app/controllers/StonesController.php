@@ -396,7 +396,7 @@ class StonesController extends Controller {
 			return Redirect::route('stones-home')->with('fail', 'This body doesn\'t exist');
 		}
 
-		$stbo = StoneBody::where('bodies_id', $id);
+		$stbo = StoneBody::where('body_id', $id);
 
 		$del = true;
 		
