@@ -28,7 +28,7 @@ img {
 @section('content')
 	<h2>Finde Deinen Stein</h2>
 
-	<img class="img-responsive" src="/images/findYstone/aura.jpg" max-width="345" max-hight="345" alt = "Maennchen" usemap="#Maennchen">
+	<img class="img-responsive" src="/images/findYstone/aura.jpg" max-width="500" max-hight="500" alt = "Maennchen" usemap="#Maennchen">
 	
 		<map name="Maennchen">					
 			<area id="Kronenchakra" shape="circle" coords="175,103, 12" href="{{ URL::route('stones-search-param', 'Kronen- oder Scheitelchakra') }}"
