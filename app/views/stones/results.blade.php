@@ -8,13 +8,13 @@
 
 @section('css')
 
-// your css
+<!--your css-->
 
 @endsection
 
 @section('scripts')
 
-// your javascript
+<!--your javascript-->
 
 @endsection
 

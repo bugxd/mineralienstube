@@ -22,6 +22,7 @@ img {
 
 @section('scripts')
 
+<!--your javascript-->
 
 @endsection
 
