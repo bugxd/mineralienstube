@@ -101,7 +101,7 @@ class StonesController extends Controller {
 					{
 						$stdi = new StoneDisease;
 						$stdi->stone_id = $stone->id;
-						$stdi->diseases_id = Input::get('disease_select');
+						$stdi->disease_id = Input::get('disease_select');
 						$stdi->save();
 					}
 					
@@ -109,7 +109,7 @@ class StonesController extends Controller {
 						foreach(Input::get('body_select') as $id){
 							$stbo = new StoneBody;
 							$stbo->stone_id = $stone->id;
-							$stbo->bodies_id = $id;
+							$stbo->body_id = $id;
 							$stbo->save();
 						};
 					}
@@ -117,7 +117,7 @@ class StonesController extends Controller {
 					{
 						$stbo = new StoneBody;
 						$stbo->stone_id = $stone->id;
-						$stbo->bodies_id = Input::get('body_select');
+						$stbo->body_id = Input::get('body_select');
 						$stbo->save();
 					}
 
@@ -349,7 +349,7 @@ class StonesController extends Controller {
 	 */
 	protected function deleteDisease($id)
 	{
-		$disease = Disease::find($id);
+		$disease = Disease::where('disease_id', '=', $id);
 
 		if($disease == null)
 		{
@@ -357,7 +357,7 @@ class StonesController extends Controller {
 		}
 
 		/*delete foreigen keys*/
-		$stdi = StoneDisease::where('diseases_id', $id);
+		$stdi = StoneDisease::where('disease_id', $id);
 		
 		$del = true;
 
